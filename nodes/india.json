@@ -1,8 +1,9 @@
 {
   "nginx": {
-    "port" : 80,
+    "port" : 80
   },
   "run_list":[
+    "yum::epel",
     "nginx"
   ]
 }

@@ -1,17 +1,26 @@
-user nginx;
-worker_processes 1;
-error_log /var/log/nginx/error.log; pid /var/run/nginx.pid;
+user  nginx;
+worker_processes  1;
+pid /var/run/nginx.pid;
+ 
+error_log  /var/log/nginx.error_log;
+ 
 events {
-  worker_connections 1024;
+  worker_connections   2000;
 }
-
+ 
 http {
-  include /etc/nginx/mime.types; default_type application/octet -stream;
+  include       /etc/nginx/mime.types;
+  default_type  application/octet-stream;
+ 
   server {
-    listen <%= node['nginx']['port'] %>; server_name localhost;
+    listen        <%= node['nginx']['port'] %>;
+    server_name   localhost;
+ 
+    access_log   /var/log/nginx.access_log;
+ 
     location / {
       root /usr/share/nginx/html;
       index index.html index.htm;
     }
-  ￼} 
+  }
 }
