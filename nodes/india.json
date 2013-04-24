@@ -2,9 +2,16 @@
   "nginx": {
     "port" : 80
   },
+  "cakephp": {
+    "home" : "/home/vagrant/cakephp"
+  },
   "run_list":[
     "yum::epel",
+    "git",
     "nginx",
-    "php-fpm"
+    "php-fpm",
+    "php",
+    "mysql",
+    "cakephp"
   ]
 }
