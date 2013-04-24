@@ -5,6 +5,8 @@
   "run_list":[
     "yum::epel",
     "nginx",
-    "php-fpm"
+    "php-fpm",
+    "php",
+    "mysql"
   ]
 }
