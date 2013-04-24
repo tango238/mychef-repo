@@ -6,10 +6,17 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-git "/home/vagrant/cakephp" do
+git node['cakephp']['home'] do
   repository "git://github.com/cakephp/cakephp.git" 
   reference "2.4"
   action :checkout
-  user  "nginx"
+  user  "vagrant"
+  group "vagrant"
+end
+
+directory node['cakephp']['home'] do
+  owner "nginx"
   group "nginx"
+  mode 0755
+  recursive true
 end
