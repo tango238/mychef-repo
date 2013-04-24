@@ -6,6 +6,8 @@
     "yum::epel",
     "nginx",
     "php-fpm",
+    "php",
+    "mysql",
     "cakephp"
   ]
 }
